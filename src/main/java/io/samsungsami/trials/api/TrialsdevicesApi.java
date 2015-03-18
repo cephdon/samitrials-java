@@ -150,8 +150,8 @@ public class TrialsdevicesApi {
   }
   
     
-  public TrialDeviceTypeRel addTrialDeviceType (String trialId, DeviceTypeInfo body) throws ApiException {
-    Object postBody = body;
+  public TrialDeviceTypeRel addTrialDeviceType (String trialId, DeviceTypeInfo deviceTypeInfo) throws ApiException {
+    Object postBody = deviceTypeInfo;
     
 
     // create path and map variables
@@ -257,8 +257,8 @@ public class TrialsdevicesApi {
   }
   
     
-  public TrialUserDeviceRelEnvelope connectTrialDevice (String trialId, String userId, DeviceInfo body) throws ApiException {
-    Object postBody = body;
+  public TrialUserDeviceRelEnvelope connectTrialDevice (String trialId, String userId, DeviceInfo deviceInfo) throws ApiException {
+    Object postBody = deviceInfo;
     
 
     // create path and map variables

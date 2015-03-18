@@ -37,8 +37,8 @@ public class TrialsApi {
 
   
     
-  public TrialEnvelope createTrial (TrialInfo body) throws ApiException {
-    Object postBody = body;
+  public TrialEnvelope createTrial (TrialInfo trialInfo) throws ApiException {
+    Object postBody = trialInfo;
     
 
     // create path and map variables
@@ -138,8 +138,8 @@ public class TrialsApi {
   }
   
     
-  public TrialEnvelope updateTrial (String trialId, TrialUpdateInfo body) throws ApiException {
-    Object postBody = body;
+  public TrialEnvelope updateTrial (String trialId, TrialUpdateInfo trialInfo) throws ApiException {
+    Object postBody = trialInfo;
     
 
     // create path and map variables

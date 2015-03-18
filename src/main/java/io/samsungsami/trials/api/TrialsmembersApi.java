@@ -205,8 +205,8 @@ public class TrialsmembersApi {
   }
   
     
-  public TrialInvitationEnvelope createTrialInvitation (String trialId, TrialInvitationInfo body) throws ApiException {
-    Object postBody = body;
+  public TrialInvitationEnvelope createTrialInvitation (String trialId, TrialInvitationInfo invitationInfo) throws ApiException {
+    Object postBody = invitationInfo;
     
 
     // create path and map variables
@@ -256,8 +256,8 @@ public class TrialsmembersApi {
   }
   
     
-  public TrialInvitationEnvelope updateTrialInvitation (String trialId, String invitationId, TrialInvitationStatusInfo body) throws ApiException {
-    Object postBody = body;
+  public TrialInvitationEnvelope updateTrialInvitation (String trialId, String invitationId, TrialInvitationStatusInfo invitationInfo) throws ApiException {
+    Object postBody = invitationInfo;
     
 
     // create path and map variables
