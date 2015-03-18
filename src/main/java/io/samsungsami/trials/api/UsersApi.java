@@ -40,7 +40,7 @@ public class UsersApi {
     
 
     // create path and map variables
-    String path = "/api/users/{userId}/trials".replaceAll("\\{format\\}","json")
+    String path = "/users/{userId}/trials".replaceAll("\\{format\\}","json")
       .replaceAll("\\{" + "userId" + "\\}", apiInvoker.escapeString(userId.toString()));
 
     // query params

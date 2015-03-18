@@ -11,7 +11,7 @@ import io.samsungsami.trials.model.ConnectedDevicesEnvelope;
 import io.samsungsami.trials.model.DeviceTypesEnvelope;
 import io.samsungsami.trials.model.DeviceTypeInfo;
 import io.samsungsami.trials.model.TrialDeviceTypeRel;
-import io.samsungsami.trials.model.TrialUserDeviceRel;
+import io.samsungsami.trials.model.TrialUserDeviceRelEnvelope;
 import io.samsungsami.trials.model.DeviceInfo;
 
 import com.sun.jersey.multipart.FormDataMultiPart;
@@ -45,7 +45,7 @@ public class TrialsdevicesApi {
     
 
     // create path and map variables
-    String path = "/api/trials/{trialId}/devices".replaceAll("\\{format\\}","json")
+    String path = "/trials/{trialId}/devices".replaceAll("\\{format\\}","json")
       .replaceAll("\\{" + "trialId" + "\\}", apiInvoker.escapeString(trialId.toString()));
 
     // query params
@@ -100,7 +100,7 @@ public class TrialsdevicesApi {
     
 
     // create path and map variables
-    String path = "/api/trials/{trialId}/devicetypes".replaceAll("\\{format\\}","json")
+    String path = "/trials/{trialId}/devicetypes".replaceAll("\\{format\\}","json")
       .replaceAll("\\{" + "trialId" + "\\}", apiInvoker.escapeString(trialId.toString()));
 
     // query params
@@ -150,12 +150,12 @@ public class TrialsdevicesApi {
   }
   
     
-  public TrialDeviceTypeRel addTrialDeviceType (String trialId, DeviceTypeInfo ) throws ApiException {
-    Object postBody = ;
+  public TrialDeviceTypeRel addTrialDeviceType (String trialId, DeviceTypeInfo body) throws ApiException {
+    Object postBody = body;
     
 
     // create path and map variables
-    String path = "/api/trials/{trialId}/devicetypes".replaceAll("\\{format\\}","json")
+    String path = "/trials/{trialId}/devicetypes".replaceAll("\\{format\\}","json")
       .replaceAll("\\{" + "trialId" + "\\}", apiInvoker.escapeString(trialId.toString()));
 
     // query params
@@ -206,7 +206,7 @@ public class TrialsdevicesApi {
     
 
     // create path and map variables
-    String path = "/api/trials/{trialId}/participants/{userId}/devices".replaceAll("\\{format\\}","json")
+    String path = "/trials/{trialId}/participants/{userId}/devices".replaceAll("\\{format\\}","json")
       .replaceAll("\\{" + "trialId" + "\\}", apiInvoker.escapeString(trialId.toString()))
       .replaceAll("\\{" + "userId" + "\\}", apiInvoker.escapeString(userId.toString()));
 
@@ -257,12 +257,12 @@ public class TrialsdevicesApi {
   }
   
     
-  public TrialUserDeviceRel connectTrialDevice (String trialId, String userId, DeviceInfo ) throws ApiException {
-    Object postBody = ;
+  public TrialUserDeviceRelEnvelope connectTrialDevice (String trialId, String userId, DeviceInfo body) throws ApiException {
+    Object postBody = body;
     
 
     // create path and map variables
-    String path = "/api/trials/{trialId}/participants/{userId}/devices".replaceAll("\\{format\\}","json")
+    String path = "/trials/{trialId}/participants/{userId}/devices".replaceAll("\\{format\\}","json")
       .replaceAll("\\{" + "trialId" + "\\}", apiInvoker.escapeString(trialId.toString()))
       .replaceAll("\\{" + "userId" + "\\}", apiInvoker.escapeString(userId.toString()));
 
@@ -293,7 +293,7 @@ public class TrialsdevicesApi {
     try {
       String response = apiInvoker.invokeAPI(basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType);
       if(response != null){
-        return (TrialUserDeviceRel) ApiInvoker.deserialize(response, "", TrialUserDeviceRel.class);
+        return (TrialUserDeviceRelEnvelope) ApiInvoker.deserialize(response, "", TrialUserDeviceRelEnvelope.class);
       }
       else {
         return null;
@@ -309,12 +309,12 @@ public class TrialsdevicesApi {
   }
   
     
-  public TrialUserDeviceRel disconnectTrialDevice (String trialId, String userId, String deviceId) throws ApiException {
+  public TrialUserDeviceRelEnvelope disconnectTrialDevice (String trialId, String userId, String deviceId) throws ApiException {
     Object postBody = null;
     
 
     // create path and map variables
-    String path = "/api/trials/{trialId}/participants/{userId}/devices/{deviceId}".replaceAll("\\{format\\}","json")
+    String path = "/trials/{trialId}/participants/{userId}/devices/{deviceId}".replaceAll("\\{format\\}","json")
       .replaceAll("\\{" + "trialId" + "\\}", apiInvoker.escapeString(trialId.toString()))
       .replaceAll("\\{" + "userId" + "\\}", apiInvoker.escapeString(userId.toString()))
       .replaceAll("\\{" + "deviceId" + "\\}", apiInvoker.escapeString(deviceId.toString()));
@@ -346,7 +346,7 @@ public class TrialsdevicesApi {
     try {
       String response = apiInvoker.invokeAPI(basePath, path, "DELETE", queryParams, postBody, headerParams, formParams, contentType);
       if(response != null){
-        return (TrialUserDeviceRel) ApiInvoker.deserialize(response, "", TrialUserDeviceRel.class);
+        return (TrialUserDeviceRelEnvelope) ApiInvoker.deserialize(response, "", TrialUserDeviceRelEnvelope.class);
       }
       else {
         return null;

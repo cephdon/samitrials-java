@@ -8,10 +8,10 @@ import io.samsungsami.trials.model.*;
 import java.util.*;
 
 import io.samsungsami.trials.model.TrialAdministratorsEnvelope;
-import io.samsungsami.trials.model.TrialParticipantRel;
+import io.samsungsami.trials.model.TrialParticipantRelEnvelope;
 import io.samsungsami.trials.model.TrialInvitationsEnvelope;
 import io.samsungsami.trials.model.TrialInvitationInfo;
-import io.samsungsami.trials.model.TrialInvitation;
+import io.samsungsami.trials.model.TrialInvitationEnvelope;
 import io.samsungsami.trials.model.TrialInvitationStatusInfo;
 import io.samsungsami.trials.model.TrialParticipantsEnvelope;
 
@@ -46,7 +46,7 @@ public class TrialsmembersApi {
     
 
     // create path and map variables
-    String path = "/api/trials/{trialId}/administrators".replaceAll("\\{format\\}","json")
+    String path = "/trials/{trialId}/administrators".replaceAll("\\{format\\}","json")
       .replaceAll("\\{" + "trialId" + "\\}", apiInvoker.escapeString(trialId.toString()));
 
     // query params
@@ -96,12 +96,12 @@ public class TrialsmembersApi {
   }
   
     
-  public TrialParticipantRel deleteTrialAdministrator (String trialId, String userId) throws ApiException {
+  public TrialParticipantRelEnvelope deleteTrialAdministrator (String trialId, String userId) throws ApiException {
     Object postBody = null;
     
 
     // create path and map variables
-    String path = "/api/trials/{trialId}/administrators/{userId}".replaceAll("\\{format\\}","json")
+    String path = "/trials/{trialId}/administrators/{userId}".replaceAll("\\{format\\}","json")
       .replaceAll("\\{" + "trialId" + "\\}", apiInvoker.escapeString(trialId.toString()))
       .replaceAll("\\{" + "userId" + "\\}", apiInvoker.escapeString(userId.toString()));
 
@@ -132,7 +132,7 @@ public class TrialsmembersApi {
     try {
       String response = apiInvoker.invokeAPI(basePath, path, "DELETE", queryParams, postBody, headerParams, formParams, contentType);
       if(response != null){
-        return (TrialParticipantRel) ApiInvoker.deserialize(response, "", TrialParticipantRel.class);
+        return (TrialParticipantRelEnvelope) ApiInvoker.deserialize(response, "", TrialParticipantRelEnvelope.class);
       }
       else {
         return null;
@@ -153,15 +153,14 @@ public class TrialsmembersApi {
     
 
     // create path and map variables
-    String path = "/api/trials/{trialId}/invitations".replaceAll("\\{format\\}","json");
+    String path = "/trials/{trialId}/invitations".replaceAll("\\{format\\}","json")
+      .replaceAll("\\{" + "trialId" + "\\}", apiInvoker.escapeString(trialId.toString()));
 
     // query params
     Map<String, String> queryParams = new HashMap<String, String>();
     Map<String, String> headerParams = new HashMap<String, String>();
     Map<String, String> formParams = new HashMap<String, String>();
 
-    if(!"null".equals(String.valueOf(trialId)))
-      queryParams.put("trialId", String.valueOf(trialId));
     if(!"null".equals(String.valueOf(status)))
       queryParams.put("status", String.valueOf(status));
     if(!"null".equals(String.valueOf(count)))
@@ -206,12 +205,12 @@ public class TrialsmembersApi {
   }
   
     
-  public TrialInvitation createTrialInvitation (String trialId, TrialInvitationInfo ) throws ApiException {
-    Object postBody = ;
+  public TrialInvitationEnvelope createTrialInvitation (String trialId, TrialInvitationInfo body) throws ApiException {
+    Object postBody = body;
     
 
     // create path and map variables
-    String path = "/api/trials/{trialId}/invitations".replaceAll("\\{format\\}","json")
+    String path = "/trials/{trialId}/invitations".replaceAll("\\{format\\}","json")
       .replaceAll("\\{" + "trialId" + "\\}", apiInvoker.escapeString(trialId.toString()));
 
     // query params
@@ -241,7 +240,7 @@ public class TrialsmembersApi {
     try {
       String response = apiInvoker.invokeAPI(basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType);
       if(response != null){
-        return (TrialInvitation) ApiInvoker.deserialize(response, "", TrialInvitation.class);
+        return (TrialInvitationEnvelope) ApiInvoker.deserialize(response, "", TrialInvitationEnvelope.class);
       }
       else {
         return null;
@@ -257,12 +256,12 @@ public class TrialsmembersApi {
   }
   
     
-  public TrialInvitation updateTrialInvitation (String trialId, String invitationId, TrialInvitationStatusInfo ) throws ApiException {
-    Object postBody = ;
+  public TrialInvitationEnvelope updateTrialInvitation (String trialId, String invitationId, TrialInvitationStatusInfo body) throws ApiException {
+    Object postBody = body;
     
 
     // create path and map variables
-    String path = "/api/trials/{trialId}/invitations/{invitationId}".replaceAll("\\{format\\}","json")
+    String path = "/trials/{trialId}/invitations/{invitationId}".replaceAll("\\{format\\}","json")
       .replaceAll("\\{" + "trialId" + "\\}", apiInvoker.escapeString(trialId.toString()))
       .replaceAll("\\{" + "invitationId" + "\\}", apiInvoker.escapeString(invitationId.toString()));
 
@@ -293,7 +292,7 @@ public class TrialsmembersApi {
     try {
       String response = apiInvoker.invokeAPI(basePath, path, "PUT", queryParams, postBody, headerParams, formParams, contentType);
       if(response != null){
-        return (TrialInvitation) ApiInvoker.deserialize(response, "", TrialInvitation.class);
+        return (TrialInvitationEnvelope) ApiInvoker.deserialize(response, "", TrialInvitationEnvelope.class);
       }
       else {
         return null;
@@ -309,12 +308,12 @@ public class TrialsmembersApi {
   }
   
     
-  public TrialInvitation deleteTrialInvitation (String trialId, String invitationId) throws ApiException {
+  public TrialInvitationEnvelope deleteTrialInvitation (String trialId, String invitationId) throws ApiException {
     Object postBody = null;
     
 
     // create path and map variables
-    String path = "/api/trials/{trialId}/invitations/{invitationId}".replaceAll("\\{format\\}","json")
+    String path = "/trials/{trialId}/invitations/{invitationId}".replaceAll("\\{format\\}","json")
       .replaceAll("\\{" + "trialId" + "\\}", apiInvoker.escapeString(trialId.toString()))
       .replaceAll("\\{" + "invitationId" + "\\}", apiInvoker.escapeString(invitationId.toString()));
 
@@ -345,7 +344,7 @@ public class TrialsmembersApi {
     try {
       String response = apiInvoker.invokeAPI(basePath, path, "DELETE", queryParams, postBody, headerParams, formParams, contentType);
       if(response != null){
-        return (TrialInvitation) ApiInvoker.deserialize(response, "", TrialInvitation.class);
+        return (TrialInvitationEnvelope) ApiInvoker.deserialize(response, "", TrialInvitationEnvelope.class);
       }
       else {
         return null;
@@ -366,7 +365,7 @@ public class TrialsmembersApi {
     
 
     // create path and map variables
-    String path = "/api/trials/{trialId}/participants".replaceAll("\\{format\\}","json")
+    String path = "/trials/{trialId}/participants".replaceAll("\\{format\\}","json")
       .replaceAll("\\{" + "trialId" + "\\}", apiInvoker.escapeString(trialId.toString()));
 
     // query params
@@ -416,12 +415,12 @@ public class TrialsmembersApi {
   }
   
     
-  public TrialParticipantRel deleteTrialParticipant (String trialId, String userId) throws ApiException {
+  public TrialParticipantRelEnvelope deleteTrialParticipant (String trialId, String userId) throws ApiException {
     Object postBody = null;
     
 
     // create path and map variables
-    String path = "/api/trials/{trialId}/participants/{userId}".replaceAll("\\{format\\}","json")
+    String path = "/trials/{trialId}/participants/{userId}".replaceAll("\\{format\\}","json")
       .replaceAll("\\{" + "trialId" + "\\}", apiInvoker.escapeString(trialId.toString()))
       .replaceAll("\\{" + "userId" + "\\}", apiInvoker.escapeString(userId.toString()));
 
@@ -452,7 +451,7 @@ public class TrialsmembersApi {
     try {
       String response = apiInvoker.invokeAPI(basePath, path, "DELETE", queryParams, postBody, headerParams, formParams, contentType);
       if(response != null){
-        return (TrialParticipantRel) ApiInvoker.deserialize(response, "", TrialParticipantRel.class);
+        return (TrialParticipantRelEnvelope) ApiInvoker.deserialize(response, "", TrialParticipantRelEnvelope.class);
       }
       else {
         return null;
