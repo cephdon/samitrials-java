@@ -26,7 +26,7 @@ In Eclipse,
 
 After the installation succeeds, you can use the generated libraries in one of the following ways depending on your scenario:
 
-- To use them in an Android project, copy libraries under `target` and `target/lib` directories of the imported Maven project to `libs` directory in your Android project.
+- To use them in an Java project, copy libraries under `target` and `target/lib` directories of the imported Maven project to `libs` directory in your Java project.
 - To use them in your Maven project, modify `pom.xml` file in your project to add dependency to samitrials-java-xxx.jar under `target` of the imported Maven project as following
 
 ~~~
